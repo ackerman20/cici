@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        #container {
+            max-width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        p {
+            font-size: 24px;
+        }
+
+        #chat-box {
+            width: 80%;
+            margin: 20px auto;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <img src="image/cici.png" alt="我的照片">
+        <p>我的歌聲還沒上架喔</p>
+    </div>
+    <div id="chat-box">
+        <input type="text" id="message" placeholder="輸入想和我互動的對話">
+        <button onclick="sendMessage()">傳送</button>
+    </div>
+    <p id="response"></p>
+
+    <script>
+        function sendMessage() {
+            var messageInput = document.getElementById("message");
+            var responseText = document.getElementById("response");
+
+            var userInput = messageInput.value.toLowerCase();
+            var responses = ["你好阿", "哈囉","你是要打幾次招呼"];
+
+            if (["你好", "早安"].includes(userInput)) {
+                var randomResponse = responses[Math.floor(Math.random() * responses.length)];
+                responseText.textContent = randomResponse;
+
+            } else {
+                responseText.textContent = "我不了解你想表達什麼，你需要翻譯蒟蒻嗎??";
+            }
+        }
+    </script>
+</body>
+</html>
