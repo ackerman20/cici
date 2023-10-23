@@ -16,20 +16,18 @@ img {
 
 p {
     font-size: 20px;
-    margin: 10px;
+    margin: 100px;
 }
 
 #chat-box {
-    width: 80%;
-    margin: 10px auto;
+    width: 90%;
+    margin: -80px auto;
     padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
 }
 
 #message {
-    width: 80%;
     height: 50px;
+    width: 60%;
     font-size: 20px;
 }
 
