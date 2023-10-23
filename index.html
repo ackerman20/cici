@@ -7,13 +7,15 @@
 <body>
     <div id="container">
         <img src="assets/image/cici.png" alt="希希">
+        <div id="chat-box">
+            <input type="text" id="message" placeholder="輸入字與我互動">
+            <button onclick="sendMessage()">傳送</button>
+        </div>
         <p id="response">我會唱歌你要聽嗎?還是要和我簡單的聊天呢?</p>
-    </div>
-    <div id="chat-box">
-        <input type="text" id="message" placeholder="輸入想和我互動的對話">
-        <button onclick="sendMessage()">傳送</button>
     </div>
     <p id="response"></p>
     <script src="script.js"></script>
     <audio id="myAudio"></audio>
+</audio>
 </body>
+</html>
