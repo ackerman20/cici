@@ -1,21 +1,22 @@
-<!DOCTYPE html>
-<html lang="zh-tw">
+<html>
 <head>
     <title>希希唱歌</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-    <div id="container">
-        <img src="assets/image/cici.png" alt="希希">
-        <div id="chat-box">
-            <input type="text" id="message" placeholder="輸入字與我互動">
-            <button onclick="sendMessage()">傳送</button>
+    <div id="container" class="flex-container">
+        <div id="left-column">
+            <img  src="assets/image/cici.png" alt="希希">
         </div>
-        <p id="response">我會唱歌你要聽嗎?還是要和我簡單的聊天呢?</p>
+        <div id="right-column">
+            <div id="chat-box">
+                <input type="text" id="message" placeholder="輸入文字與我互動吧">
+                <button id="btn" onclick="sendMessage()">傳送</button>
+            </div>
+            <p id="response">我會唱歌你要聽嗎?還是要和我陪你簡單的聊天呢?</p>
+        </div>
     </div>
-    <p id="response"></p>
     <script src="script.js"></script>
     <audio id="myAudio"></audio>
-</audio>
 </body>
 </html>
