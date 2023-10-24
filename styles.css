@@ -1,38 +1,52 @@
 body {
     text-align: center;
 }
-
 #container {
     max-width: 100%;
     display: flex;
-    flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
-
-img {
-    max-width: 100%;
-    height: auto;
+#left-column {
+    max-width: 70%; /* 調整占比 */
+    text-align: center;
 }
-
-p {
+#left-column img {
+    height: 800px;
+    width: auto;
+}
+#p{
     font-size: 20px;
-    margin: 100px;
 }
-
+#right-column {
+    max-width: 30%; 
+    text-align: center;
+}
 #chat-box {
-    width: 90%;
-    margin: -80px auto;
+    margin: 20px auto;
     padding: 10px;
+    border-radius: 5px;
 }
-
 #message {
     height: 50px;
-    width: 60%;
+    font-size: 20px;
+}
+#btn {
+    height: 50px;
     font-size: 20px;
 }
 
-button {
-    height: 50px;
-    font-size: 20px;
-    color: #168653;
+@media (max-width: 800px) {
+    #container {
+        flex-direction: column; /* 寬度低於時切換為上下布局 */
+    }
+    #left-column,#right-column {
+        max-width: 100%;
+        text-align: center;
+    }
+    #left-column img {
+        max-width: 100%;
+        height: auto;
+        
+    }
 }
