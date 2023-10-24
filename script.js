@@ -27,7 +27,7 @@ function sendMessage() {
         responseText.textContent = randomResponse;
     } else if (["自我介紹一下", "自我介紹", "你是誰"].includes(userInput)) {
         if (audioElement) {audioElement.pause();audioElement = null;}
-        var responses = ["你好，我是AI Amaze，可以叫我希希，我會唱歌喔"];
+        var responses = ["你好，我是AI Amaze，可以叫我希希，我會唱歌喔，這裡是T大使的李承恩做出來的，經過AI訓練讓我可以唱出歌曲，可以對我說「唱歌」我會告訴你我會唱哪些歌喔"];
         var randomResponse = responses[Math.floor(Math.random() * responses.length)];
         responseText.textContent = randomResponse;
     } else if (["AI Amaze", "希希"].includes(userInput)) {
@@ -45,11 +45,16 @@ function sendMessage() {
         var responses = ["翻譯蒟蒻源自於日本知名動漫多拉A夢中的道具之一，吃下後可以聽得懂對方說的話，對方也可以聽得懂你說的話","你猜阿","你自己去Google","(無言)"];
         var randomResponse = responses[Math.floor(Math.random() * responses.length)];
         responseText.textContent = randomResponse;
-    } else if (["午餐能吃什麼","午餐可以吃什麼","午餐推薦吃什麼","午餐推薦","肚子好餓","肚子餓","好餓","餓"].includes(userInput)) {
+    } else if (["午餐能吃什麼","午餐吃什麼","午餐可以吃什麼","午餐推薦吃什麼","午餐推薦","肚子好餓","肚子餓","好餓","餓","午餐","附近美食","附近推薦"].includes(userInput)) {
         if (audioElement) {audioElement.pause();audioElement = null;}
         var responses = ["老師ㄟ面","賣噹噹","小籠包","炒飯","米糕城","素食鍋燒","長腳麵","擔仔麵","老蔡魚粥","黑肉水餃","混沌2點","千義","大智","千葉素食","田記豆漿"];
         var randomResponse = responses[Math.floor(Math.random() * responses.length)];
         responseText.textContent = '根據幼娘狐的餐廳清單，我幫你隨機選一間吧 ! 去吃' + randomResponse + "好了";
+    } else if (["你來自哪裡", "你從哪裡來", "你來自哪裡"].includes(userInput)) {
+        if (audioElement) {audioElement.pause();audioElement = null;}
+        var responses = ["你好，我來自愛吠的狗，但這裡是T大使的李承恩做出來的，如果想要了解真正的我可以去 https://www.ai-amaze.com 了解完整的我喔"];
+        var randomResponse = responses[Math.floor(Math.random() * responses.length)];
+        responseText.textContent = randomResponse;
     } else if (["唱歌", "你會唱歌嗎", "你會唱什麼歌", "那你會唱什麼歌", "那你會唱哪些歌曲"].includes(userInput)) {
         if (audioElement) {audioElement.pause();audioElement = null;}
         var responses = ["我會唱以下歌曲 : 群青、小幸運，選一首讓我唱給你聽吧"];
@@ -72,4 +77,14 @@ function sendMessage() {
         responseText.textContent = "我不了解你想表達什麼，你需要翻譯蒟蒻嗎??";
     }
     messageInput.value = "";
+}
+function displayText(element, textArray) {
+    var currentIndex = 0;
+    var timer = setInterval(function() {
+        element.textContent += textArray[currentIndex];
+        currentIndex++;
+        if (currentIndex >= textArray.length) {
+            clearInterval(timer);
+        }
+    }, 500); // 這裡的數字表示每個字之間的延遲時間（毫秒）
 }
