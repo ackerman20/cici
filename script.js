@@ -1,11 +1,14 @@
 var audioElement = null; // 宣告一個全域變數向量來儲存聲音元素
 var originalImageSrc = "assets/image/cici.png";
 
+// 添加图片点击事件监听器
 var image = document.querySelector("#left-column img");
 image.addEventListener("click", function () {
-    
     var responseText = document.getElementById("response");
-    responseText.textContent = "不要點我，請與我文字交流";
+    var image = document.querySelector("#left-column img");
+    responseText.textContent = "不要點我，請用文字與我交流";
+    image.src = originalImageSrc; // 恢復圖片
+    if (audioElement) {audioElement.pause();audioElement = null;}
 });
 
 function sendMessage() {
@@ -13,18 +16,17 @@ function sendMessage() {
     var responseText = document.getElementById("response");
     var userInput = messageInput.value.toLowerCase();
     var image = document.querySelector("#left-column img");
-    image.src = originalImageSrc;
+    image.src = originalImageSrc; // 恢復圖片
     responseText.textContent = "我會唱歌你要聽嗎?還是要我陪你簡單的聊天呢?";
     audioElement = null;
 
     if (audioElement && audioElement.ended) {
         var image = document.querySelector("#left-column img");
-        image.src = originalImageSrc; //恢復圖片
+        image.src = originalImageSrc;
         responseText.textContent = "我會唱歌你要聽嗎?還是要和我簡單的聊天呢?";
         audioElement = null;
     } else if (messageInput.value === "") {
         if (audioElement) {audioElement.pause();audioElement = null;}
-        
         responseText.textContent = "不留任何字我要怎麼回覆你";
     } else if (["你好", "早安","哈囉","嗨嗨","阿囉哈","Hi","hi","Hello","hello"].includes(userInput)) {
         if (audioElement) {audioElement.pause();audioElement = null;}
@@ -34,6 +36,11 @@ function sendMessage() {
     } else if (["自我介紹一下", "自我介紹", "你是誰"].includes(userInput)) {
         if (audioElement) {audioElement.pause();audioElement = null;}
         var responses = ["你好，我是AI Amaze，可以叫我希希，我會唱歌喔"];
+        var randomResponse = responses[Math.floor(Math.random() * responses.length)];
+        responseText.textContent = randomResponse;
+    } else if (["AI Amaze", "希希"].includes(userInput)) {
+        if (audioElement) {audioElement.pause();audioElement = null;}
+        var responses = ["怎麼了，需要我唱歌給你聽嗎?"];
         var randomResponse = responses[Math.floor(Math.random() * responses.length)];
         responseText.textContent = randomResponse;
     } else if (["你會哪些技能", "你能提供什麼服務", "你會哪些"].includes(userInput)) {
@@ -62,7 +69,7 @@ function sendMessage() {
         audioElement.play();
         var image = document.querySelector("#left-column img");
         image.src = "assets/image/sing.png";
-        responseText.textContent = "演唱群青中...\n(先說一下，我的歌聲是用日文訓練的喔)";
+        responseText.textContent = "演唱群青中...\n(我的歌聲是用日文訓練的喔)";
     } else if (["小幸運", "唱小幸運", "小幸運吧", "小幸運好了"].includes(userInput)) {
         if (audioElement) {audioElement.pause();audioElement = null;}
         audioElement = new Audio('assets/music/2.mp3');
