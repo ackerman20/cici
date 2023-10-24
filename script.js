@@ -1,7 +1,6 @@
 var audioElement = null; // 宣告一個全域變數向量來儲存聲音元素
 var originalImageSrc = "assets/image/cici.png";
 
-// 添加图片点击事件监听器
 var image = document.querySelector("#left-column img");
 image.addEventListener("click", function () {
     var responseText = document.getElementById("response");
@@ -11,21 +10,14 @@ image.addEventListener("click", function () {
     if (audioElement) {audioElement.pause();audioElement = null;}
 });
 
-function sendMessage() {
+function sendMessage() { 
     var messageInput = document.getElementById("message");
     var responseText = document.getElementById("response");
     var userInput = messageInput.value.toLowerCase();
     var image = document.querySelector("#left-column img");
     image.src = originalImageSrc; // 恢復圖片
-    responseText.textContent = "我會唱歌你要聽嗎?還是要我陪你簡單的聊天呢?";
-    audioElement = null;
 
-    if (audioElement && audioElement.ended) {
-        var image = document.querySelector("#left-column img");
-        image.src = originalImageSrc;
-        responseText.textContent = "我會唱歌你要聽嗎?還是要和我簡單的聊天呢?";
-        audioElement = null;
-    } else if (messageInput.value === "") {
+    if (messageInput.value === "") {
         if (audioElement) {audioElement.pause();audioElement = null;}
         responseText.textContent = "不留任何字我要怎麼回覆你";
     } else if (["你好", "早安","哈囉","嗨嗨","阿囉哈","Hi","hi","Hello","hello"].includes(userInput)) {
