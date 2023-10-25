@@ -35,9 +35,9 @@ function sendMessage() {
         var responses = ["怎麼了，需要我唱歌給你聽嗎?"];
         var randomResponse = responses[Math.floor(Math.random() * responses.length)];
         responseText.textContent = randomResponse;
-    } else if (["你會哪些技能", "你能提供什麼服務", "你會哪些"].includes(userInput)) {
+    } else if (["你會哪些技能", "你能提供什麼服務", "你會哪些", "你會什麼", "你目前擁有哪些技能","你能提供什麼","你能提供什麼服務"].includes(userInput)) {
         if (audioElement) {audioElement.pause();audioElement = null;}
-        var responses = ["你好，我是AI Amaze，可以叫我希希，我會唱歌喔"];
+        var responses = ["你好，我是AI Amaze，可以叫我希希，我會唱歌和簡單的聊天，或者你可以嘗試一些詞，說不定我也會喔"];
         var randomResponse = responses[Math.floor(Math.random() * responses.length)];
         responseText.textContent = randomResponse;
     } else if (["翻譯蒟蒻","什麼是翻譯蒟蒻","翻譯蒟蒻是什麼"].includes(userInput)) {
@@ -47,12 +47,12 @@ function sendMessage() {
         responseText.textContent = randomResponse;
     } else if (["午餐能吃什麼","午餐吃什麼","午餐可以吃什麼","午餐推薦吃什麼","午餐推薦","肚子好餓","肚子餓","好餓","餓","午餐","附近美食","附近推薦"].includes(userInput)) {
         if (audioElement) {audioElement.pause();audioElement = null;}
-        var responses = ["老師ㄟ面","賣噹噹","小籠包","炒飯","米糕城","素食鍋燒","長腳麵","擔仔麵","老蔡魚粥","黑肉水餃","混沌2點","千義","大智","千葉素食","田記豆漿"];
+        var responses = ["老師ㄟ面","賣噹噹","小籠包","炒飯","米糕城","素食鍋燒","長腳麵","擔仔麵","老蔡魚粥","黑豬肉水餃","混沌2點","千義","大智","千葉素食","田記豆漿"];
         var randomResponse = responses[Math.floor(Math.random() * responses.length)];
         responseText.textContent = '根據幼娘狐的餐廳清單，我幫你隨機選一間吧 ! 去吃' + randomResponse + "好了";
     } else if (["你來自哪裡", "你從哪裡來", "你來自哪裡"].includes(userInput)) {
         if (audioElement) {audioElement.pause();audioElement = null;}
-        var responses = ["你好，我來自愛吠的狗，但這裡是T大使的李承恩做出來的，如果想要了解真正的我可以去 https://www.ai-amaze.com 了解完整的我喔"];
+        var responses = ["你好，我來自愛吠的狗，但這裡是T大使的李承恩做出來的，如果想要了解完整的我可以去 https://www.ai-amaze.com 這個網站喔"];
         var randomResponse = responses[Math.floor(Math.random() * responses.length)];
         responseText.textContent = randomResponse;
     } else if (["唱歌", "你會唱歌嗎", "你會唱什麼歌", "那你會唱什麼歌", "那你會唱哪些歌曲"].includes(userInput)) {
