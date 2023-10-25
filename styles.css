@@ -15,12 +15,8 @@ body {
     height: 800px;
     width: auto;
 }
-#p{
-    font-size: 20px;
-}
 #right-column {
     max-width: 30%; 
-    text-align: center;
 }
 #chat-box {
     margin: 20px auto;
@@ -28,21 +24,30 @@ body {
     border-radius: 5px;
 }
 #message {
+    text-align: left;
     height: 50px;
     font-size: 20px;
+    left: 0px;
 }
 #btn {
     height: 50px;
     font-size: 20px;
+}
+#right-column p {
+    text-align: left;
+    margin-left: 20px;
 }
 
 @media (max-width: 800px) {
     #container {
         flex-direction: column; /* 寬度低於時切換為上下布局 */
     }
-    #left-column,#right-column {
+    #left-column {
         max-width: 100%;
-        text-align: center;
+    }
+    #right-column {
+        max-width: 100%;
+        margin-top: -100px;
     }
     #left-column img {
         max-width: 100%;
