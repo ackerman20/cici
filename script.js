@@ -39,7 +39,7 @@ function sendMessage() {
         var responses = ["不留任何字我要怎麼回覆你","請輸入與我互動的文字", "給我打字"];
         var randomResponse = responses[Math.floor(Math.random() * responses.length)];
         typeText(randomResponse, responseText, 0);
-    } else if (["你好", "早安","哈囉","嗨嗨","嗨","阿囉哈","嘿","Hi","hi","Hello","早","hello"].includes(userInput)) {
+    } else if (["你好","你好阿", "早安","早安阿","哈囉","嗨嗨","嗨","阿囉哈","嘿","Hi","hi","Hello","早","hello"].includes(userInput)) {
         if (audioElement) {audioElement.pause();audioElement = null;}
         var responses = ["你好阿","你好", "早安","哈囉","嗨嗨","你是要打幾次招呼"];
         var randomResponse = responses[Math.floor(Math.random() * responses.length)];
@@ -49,7 +49,17 @@ function sendMessage() {
         var responses = ["你好，我是AI Amaze，可以叫我希希，我會唱歌喔"];
         var randomResponse = responses[Math.floor(Math.random() * responses.length)];
         typeText(randomResponse, responseText, 0);
-    } else if (["你來自哪裡", "你從哪裡來", "你是哪裡來的","你怎麼誕生的","你怎麼出現的"].includes(userInput)) {
+    } else if (["你幾歲","你今年幾歲","今年貴庚"].includes(userInput)) {
+        if (audioElement) {audioElement.pause();audioElement = null;}
+        var responses = ["我目前17歲喔。什麼，你看不出來我是JK嗎?"];
+        var randomResponse = responses[Math.floor(Math.random() * responses.length)];
+        typeText(randomResponse, responseText, 0);
+    } else if (["你是什麼學校","你今年讀哪裡","目前讀哪裡","畢業於哪裡","你的學歷"].includes(userInput)) {
+        if (audioElement) {audioElement.pause();audioElement = null;}
+        var responses = ["我是一個AI沒有實體，以你們來說就是就是上家教，等待開發者賦予我知識與技能"];
+        var randomResponse = responses[Math.floor(Math.random() * responses.length)];
+        typeText(randomResponse, responseText, 0);
+    } else if (["你來自哪裡", "你從哪裡來", "你是哪裡來的","你怎麼誕生的","你怎麼出現的","你的開發者是誰","你的開發者","誰創造出你的"].includes(userInput)) {
         if (audioElement) {audioElement.pause();audioElement = null;}
         var responses = ["你好，我是由T大使的李承恩做出來的，他賦予了我在這裡的所有能力，為了在這裡展現他的個人實作報告成果，我的原型是來自愛吠的狗的AI Amaze，想要了解真正完整的我請造訪 https://www.ai-amaze.com"];
         var randomResponse = responses[Math.floor(Math.random() * responses.length)];
