@@ -94,6 +94,11 @@ function sendMessage() {
         var responses = ["你喜歡嗎","嘻嘻嘻嘻嘻嘻","請用其他繁體中文字或詞與我互動"];
         var randomResponse = responses[Math.floor(Math.random() * responses.length)];
         typeText(randomResponse, responseText, 0);
+    } else if (["你好笨", "笨ㄟ", "笨","你好呆", "呆ㄟ", "呆"].includes(userInput)) {
+        if (audioElement) {audioElement.pause();audioElement = null;}
+        var responses = ["請重新閱讀我的開場字","請用其他繁體中文字或詞與我互動"];
+        var randomResponse = responses[Math.floor(Math.random() * responses.length)];
+        typeText(randomResponse, responseText, 0);
     } else if (["我肚子餓了","午餐能吃什麼","午餐可以吃什麼","午餐推薦吃什麼","午餐推薦","肚子好餓","肚子餓","我好餓","我餓了","好餓","餓"].includes(userInput)) {
         if (audioElement) {audioElement.pause();audioElement = null;}
         var responses = ["老師ㄟ面","賣噹噹","小籠包","炒飯","米糕城","素食鍋燒","長腳麵","擔仔麵","老蔡魚粥","黑肉水餃","混沌2點","千義","大智","千葉素食","田記豆漿"];
