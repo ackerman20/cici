@@ -66,7 +66,7 @@ function sendMessage() {
         typeText(randomResponse, responseText, 0);
     } else if (["翻譯蒟蒻","什麼是翻譯蒟蒻","翻譯蒟蒻是什麼"].includes(userInput)) {
         if (audioElement) {audioElement.pause();audioElement = null;}
-        var responses = ["翻譯蒟蒻源自於日本知名動漫多拉A夢中的道具之一，吃下後可以聽得懂對方說的話，對方也可以聽得懂你說的話","你猜阿","你自己去Google","......","去問神奇海螺"];
+        var responses = ["翻譯蒟蒻源自於日本知名動漫多拉A夢中的道具之一，吃下後可以聽得懂對方說的話，對方也可以聽得懂你說的話","你猜阿",,"你猜阿嘻嘻嘻嘻","你自己去Google","......","去問神奇海螺"];
         var randomResponse = responses[Math.floor(Math.random() * responses.length)];
         typeText(randomResponse, responseText, 0);
     } else if (["神奇海螺","神奇海螺是什麼","什麼是神奇海螺"].includes(userInput)) {
@@ -74,9 +74,14 @@ function sendMessage() {
         var responses = ["神奇海螺是源自於海綿寶寶的梗，動畫中向它許願後立刻實現，但我目前的能力有限，只能簡單的和你互動","你猜阿嘻嘻嘻嘻","你自己去Google搜尋","(翻白眼)"];
         var randomResponse = responses[Math.floor(Math.random() * responses.length)];
         typeText(randomResponse, responseText, 0);
-    } else if (["你好兇", "兇ㄟ", "兇", "你好洽"].includes(userInput)) {
+    } else if (["幼娘狐", "誰是幼娘狐", "幼娘狐是誰", "幼娘狐是什麼", "介紹一下幼娘狐", "介紹一下幼娘狐是誰", "介紹一下幼娘狐是什麼"].includes(userInput)) {
         if (audioElement) {audioElement.pause();audioElement = null;}
-        var responses = ["你喜歡嗎","嘻嘻嘻嘻嘻嘻","請用繁體中文與我互動"];
+        var responses = ["幼娘狐是一種兩棲類生物，主要生活在房間與公司，生性溫和，擁有完美主義者的特質，曾經有發生攻擊人類的事件，請小心。","幼娘狐是第四屆T大使之一，擅長C#與3D建模等，同時提供了餐廳清單讓我可以幫助大家解決選擇用餐地點的問題，也是賦予我唱歌能力之一的大",""];
+        var randomResponse = responses[Math.floor(Math.random() * responses.length)];
+        typeText(randomResponse, responseText, 0);
+    } else if (["你好兇", "兇ㄟ", "兇", "你好恰"].includes(userInput)) {
+        if (audioElement) {audioElement.pause();audioElement = null;}
+        var responses = ["你喜歡嗎","嘻嘻嘻嘻嘻嘻","請用其他繁體中文字或詞與我互動"];
         var randomResponse = responses[Math.floor(Math.random() * responses.length)];
         typeText(randomResponse, responseText, 0);
     } else if (["我肚子餓了","午餐能吃什麼","午餐可以吃什麼","午餐推薦吃什麼","午餐推薦","肚子好餓","肚子餓","我好餓","我餓了","好餓","餓"].includes(userInput)) {
