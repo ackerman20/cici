@@ -3,15 +3,24 @@ var originalImageSrc = "assets/image/cici.png";
 
 function typeText(text, element, index) {
     if (index < text.length) {
-        if (text.charAt(index) === '\n') {
-            element.innerHTML += '<br>'; // 如果遇到 \n，插入换行符 <br>
-        } else {
-            element.textContent += text.charAt(index);
-        }
+        element.textContent = text.substring(0, index) + "█";
         var randomDelay = Math.floor(Math.random() * 300);
         setTimeout(function() {
             typeText(text, element, index + 1);
         }, randomDelay);
+    } else {
+        element.textContent = text;
+    }
+}
+function typeTextt(text, element, index) {
+    if (index < text.length) {
+        element.textContent = text.substring(0, index) + "█";
+        var randomDelay = Math.floor(Math.random() * 300) + 4000;
+        setTimeout(function() {
+            typeText(text, element, index + 1);
+        }, randomDelay);
+    } else {
+        element.textContent = text;
     }
 }
 
@@ -25,23 +34,69 @@ image.addEventListener("click", function () {
     if (audioElement) {audioElement.pause();audioElement = null;}
 });
 
+
+function playGame(userChoice) {
+    var choices = ["剪刀", "石頭", "布"];
+    var aiChoice = choices[Math.floor(Math.random() * choices.length)];
+    if (userChoice === aiChoice) {
+        var responses = ["哎呀，平手了","你這次運氣真好"];
+        var randomResponse = responses[Math.floor(Math.random() * responses.length)];
+        return "我出" + aiChoice + "，" + randomResponse;
+    } else if (
+        (userChoice === "剪刀" && aiChoice === "布") ||
+        (userChoice === "石頭" && aiChoice === "剪刀") ||
+        (userChoice === "布" && aiChoice === "石頭")
+    ) {
+        var responses = ["恭喜你贏了","可惡，下次我一定會贏的", "你這次運氣真好"];
+        var randomResponse = responses[Math.floor(Math.random() * responses.length)];
+        return "我出" + aiChoice + "，" + randomResponse;
+    } else {
+        var responses = ["我就說我會贏吧嘻嘻嘻嘻","你輸了嘻嘻嘻嘻嘻嘻><", "你真弱"];
+        var randomResponse = responses[Math.floor(Math.random() * responses.length)];
+        return "我出" + aiChoice + "，" + randomResponse;
+    }
+}
+
 function sendMessage() { 
     var messageInput = document.getElementById("message");
     var responseText = document.getElementById("response");
+    var lyricsText = document.getElementById("lyrics");
     var userInput = messageInput.value.toLowerCase();
+    var outputt = responseText.textContent;
     var image = document.querySelector("#left-column img");
+    
     image.src = originalImageSrc; // 恢復圖片
 
     responseText.textContent = "";
-
     if (messageInput.value === "") {
         if (audioElement) {audioElement.pause();audioElement = null;}
         var responses = ["不留任何字我要怎麼回覆你","請輸入與我互動的文字", "給我打字"];
         var randomResponse = responses[Math.floor(Math.random() * responses.length)];
         typeText(randomResponse, responseText, 0);
-    } else if (["你好","你好阿", "早安","早安阿","哈囉","嗨嗨","嗨","阿囉哈","嘿","Hi","hi","Hello","早","hello"].includes(userInput)) {
+    } else if (["我們來猜拳","猜拳", "玩猜拳","剪刀石頭布"].includes(userInput)) {
+        if (audioElement) {audioElement.pause();audioElement = null;}
+        messageInput.value = "";
+        var responses = ["來吧,剪刀、石頭、布","好啊，那開始囉，剪刀、石頭、布", "好啊，我有把握我會贏的，剪刀、石頭、布"];
+        var randomResponse = responses[Math.floor(Math.random() * responses.length)];
+        typeText(randomResponse, responseText, 0);
+    } else if (["剪刀", "石頭", "布"].includes(userInput)) {
+        if (audioElement) {audioElement.pause();audioElement = null;}
+        if (["來吧,剪刀、石頭、布","好啊，那開始囉，剪刀、石頭、布", "好啊，我有把握我會贏的，剪刀、石頭、布"].includes(outputt)) {
+            var result = playGame(userInput);
+            typeText(result, responseText, 0);
+        } else {
+            var responses = ["我不了解你想表達什麼，你需要翻譯蒟蒻嗎??","我不了解你想表達什麼，你需要翻譯蒟蒻嗎??或是向我的開發者提供建議","我不了解你說什麼，剛剛的互動詞已超越我的認知"];
+            var randomResponse = responses[Math.floor(Math.random() * responses.length)];
+            typeText(randomResponse, responseText, 0);
+        }
+    }  else if (["你好","你好阿", "早安","早安阿","哈囉","嗨嗨","嗨","阿囉哈","嘿","Hi","hi","Hello","早","hello"].includes(userInput)) {
         if (audioElement) {audioElement.pause();audioElement = null;}
         var responses = ["你好阿","你好", "早安","哈囉","嗨嗨","你是要打幾次招呼"];
+        var randomResponse = responses[Math.floor(Math.random() * responses.length)];
+        typeText(randomResponse, responseText, 0);
+    } else if (["可以啊","好阿", "好","不要","要","不可以","需要","不需要"].includes(userInput)) {
+        if (audioElement) {audioElement.pause();audioElement = null;}
+        var responses = ["什麼可以啊","什麼好阿", "好什麼","不要什麼","要什麼","不可以什麼","什麼需要","什麼不需要"];
         var randomResponse = responses[Math.floor(Math.random() * responses.length)];
         typeText(randomResponse, responseText, 0);
     } else if (["自我介紹一下", "自我介紹", "你是誰","你"].includes(userInput)) {
@@ -94,19 +149,19 @@ function sendMessage() {
         var responses = ["你喜歡嗎","嘻嘻嘻嘻嘻嘻","請用其他繁體中文字或詞與我互動"];
         var randomResponse = responses[Math.floor(Math.random() * responses.length)];
         typeText(randomResponse, responseText, 0);
-    } else if (["你好笨", "笨ㄟ", "笨","你好呆", "呆ㄟ", "呆"].includes(userInput)) {
+    } else if (["你好笨", "笨ㄟ", "笨","你好呆", "呆ㄟ", "呆","你好遜","好遜","遜","你好爛","好爛","爛"].includes(userInput)) {
         if (audioElement) {audioElement.pause();audioElement = null;}
-        var responses = ["請重新閱讀我的開場字","請用其他繁體中文字或詞與我互動"];
+        var responses = ["請重新整理網頁仔細閱讀我的開場字","請用其他繁體中文詞與我互動","請用其他繁體中文字與我互動","很抱歉，剛剛的互動詞已超越我的認知，請向我的開發者建議"];
         var randomResponse = responses[Math.floor(Math.random() * responses.length)];
         typeText(randomResponse, responseText, 0);
-    } else if (["我肚子餓了","午餐能吃什麼","午餐可以吃什麼","午餐推薦吃什麼","午餐推薦","肚子好餓","肚子餓","我好餓","我餓了","好餓","餓"].includes(userInput)) {
+    } else if (["吃啥","吃什麼","能吃什麼","我餓了","餓了","我肚子餓了","午餐能吃什麼","午餐可以吃什麼","午餐推薦吃什麼","午餐推薦","肚子好餓","肚子餓","我好餓","我餓了","好餓","餓"].includes(userInput)) {
         if (audioElement) {audioElement.pause();audioElement = null;}
         var responses = ["老師ㄟ面","賣噹噹","小籠包","炒飯","米糕城","素食鍋燒","長腳麵","擔仔麵","老蔡魚粥","黑肉水餃","混沌2點","千義","大智","千葉素食","田記豆漿"];
         var randomResponse = responses[Math.floor(Math.random() * responses.length)];
         typeText('肚子餓了嗎?那可是很緊急呢。希希幫你從幼娘狐的餐廳清單選一間吧 ! 現在去吃' + randomResponse + "，趕快趕快", responseText, 0);
-    } else if (["你會唱哪些","唱歌","你會唱歌嗎","你會唱什麼", "你會唱什麼歌", "那你會唱什麼歌", "那你會唱哪些歌曲"].includes(userInput)) {
+    } else if (["你會唱哪些","唱歌","唱歌一下","你會唱歌嗎","你會唱什麼", "你會唱什麼歌", "那你會唱什麼歌", "那你會唱哪些歌曲","唱歌給我聽","唱首歌","唱首歌來","唱首歌來聽聽","唱歌給我聽","我要聽妳唱歌","希希唱歌","希希唱歌給我聽","希希唱首歌"].includes(userInput)) {
         if (audioElement) {audioElement.pause();audioElement = null;}
-        var responses = ["我會唱以下歌曲 : 群青、小幸運，選一首讓我唱給你聽吧"];
+        var responses = ["我會唱以下歌曲 : 群青、粉雪、小幸運，選一首讓我唱給你聽吧"];
         var randomResponse = responses[Math.floor(Math.random() * responses.length)];
         typeText(randomResponse, responseText, 0);
     } else if (["群青", "唱群青", "群青吧", "群青好了"].includes(userInput)) {
@@ -115,14 +170,23 @@ function sendMessage() {
         audioElement.play();
         image.src = "assets/image/sing.png";
         typeText("演唱群青中...\n(我的歌聲是用日文訓練的喔)", responseText, 0);
-    } else if (["小幸運", "唱小幸運", "小幸運吧", "小幸運好了"].includes(userInput)) {
+        typeTextt("嗚呼いつもの様に 過ぎる日々にあくびが出る さんざめく夜越え今日も   渋谷の街に朝が降る どこか虚しいような   そんな気持ち   つまらないな   でもそれでいい そんなもんさ これでいい   知らず知らず隠してた   本当の声を響かせてよほら   見ないフリしていても   確かにそこにある   嗚呼 感じたままに描く  自分で選んだその色で  眠い空気纏う朝に  訪れた青い世界    好きなものを好きだと言う    怖くて仕方ないけど  本当の自分    出会えた気がしたんだ    嗚呼 手を伸ばせば伸ばすほどに   遠くへゆく 思うようにいかない今日も また慌ただしくもがいてる 悔しい気持ちも ただ情けなくて    涙が出る    踏み込むほど 苦しくなる 痛くもなる   嗚呼 感じたままに進む  自分で選んだこの道を  重いまぶた擦る夜に    しがみついた青い誓い    好きなことを続けること  それは楽しいだけじゃない  本当にできる  不安になるけど    嗚呼 何枚でも ほら何枚でも  自信がないから描いてきたんだよ    嗚呼 何回でも ほら何回でも  積み上げてきたことが武器になる    周りを見たって 誰と比べたって   僕にしかできないことはなんだ   今でも自信なんかない それでも  感じたことない気持ち  知らずにいた想い  あの日踏み出して  初めて感じたこの痛みも全部    好きなものと向き合うことで  触れたまだ小さな光    大丈夫 行こう あとは楽しむだけだ    嗚呼 全てを賭けて描く   自分にしか出せない色で 朝も夜も走り続け 見つけ出した青い光   好きなものと向き合うこと   今だって怖いことだけど もう今はあの日の透明な僕じゃない 嗚呼 ありのままの    かけがえの無い僕だ  知らず知らず隠してた  本当の声を響かせてよほら  見ないフリしていても  確かにそこに今もそこにあるよ  知らず知らず隠してた  本当の声を響かせてよさあ  見ないフリしていても  確かにそこに君の中に", lyricsText, 0);
+    } else if (["粉雪", "唱粉雪", "粉雪吧", "粉雪好了"].includes(userInput)) {
         if (audioElement) {audioElement.pause();audioElement = null;}
         audioElement = new Audio('assets/music/2.mp3');
+        audioElement.play();
+        image.src = "assets/image/sing.png";
+        typeText("演唱粉雪中...\n(我的歌聲是用日文訓練的喔)", responseText, 0);
+    } else if (["小幸運", "唱小幸運", "小幸運吧", "小幸運好了"].includes(userInput)) {
+        if (audioElement) {audioElement.pause();audioElement = null;}
+        audioElement = new Audio('assets/music/3.mp3');
         audioElement.play();
         typeText("小幸運還沒上架喔，期待一下吧", responseText, 0);
     } else {
         if (audioElement) {audioElement.pause();audioElement = null;}
-        typeText("我不了解你想表達什麼，你需要翻譯蒟蒻嗎??或是向我的開發者提供意見", responseText, 0);
+        var responses = ["我不了解你想表達什麼，你需要翻譯蒟蒻嗎??","我不了解你想表達什麼，你需要翻譯蒟蒻嗎??或是向我的開發者提供建議","我不了解你說什麼，剛剛的互動詞已超越我的認知"];
+        var randomResponse = responses[Math.floor(Math.random() * responses.length)];
+        typeText(randomResponse, responseText, 0);
     }
     messageInput.value = "";
 }
