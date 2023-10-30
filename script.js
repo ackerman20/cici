@@ -151,7 +151,7 @@ function sendMessage() {
         typeText('肚子餓了嗎?那可是很緊急呢。希希幫你從幼娘狐的餐廳清單選一間吧 ! 現在去吃' + randomResponse + "，趕快趕快", responseText, 0);
     } else if (["你會唱哪些","唱歌","唱歌一下","你會唱歌嗎","你會唱什麼", "你會唱什麼歌", "那你會唱什麼歌", "那你會唱哪些歌曲","唱歌給我聽","唱首歌","唱首歌來","唱首歌來聽聽","唱歌給我聽","我要聽妳唱歌","希希唱歌","希希唱歌給我聽","希希唱首歌"].includes(userInput)) {
         if (audioElement) {audioElement.pause();audioElement = null;}
-        var responses = ["我會唱以下歌曲 : 群青、粉雪、小幸運，選一首讓我唱給你聽吧"];
+        var responses = ["我會唱以下歌曲 : 群青、粉雪、小幸運、煎熬、過火，選一首讓我唱給你聽吧"];
         var randomResponse = responses[Math.floor(Math.random() * responses.length)];
         typeText(randomResponse, responseText, 0);
     } else if (["群青", "唱群青", "群青吧", "群青好了"].includes(userInput)) {
@@ -170,7 +170,20 @@ function sendMessage() {
         if (audioElement) {audioElement.pause();audioElement = null;}
         audioElement = new Audio('assets/music/3.mp3');
         audioElement.play();
-        typeText("小幸運還沒上架喔，期待一下吧", responseText, 0);
+        image.src = "assets/image/sing.png";
+        typeText("演唱小幸運中...\n(我的歌聲是用日文訓練的喔)", responseText, 0);
+    } else if (["煎熬", "唱煎熬", "煎熬吧", "煎熬好了"].includes(userInput)) {
+        if (audioElement) {audioElement.pause();audioElement = null;}
+        audioElement = new Audio('assets/music/4.mp3');
+        audioElement.play();
+        image.src = "assets/image/sing.png";
+        typeText("演唱煎熬中...\n(我的歌聲是用日文訓練的喔)", responseText, 0);
+    } else if (["過火", "唱過火", "過火吧", "過火好了"].includes(userInput)) {
+        if (audioElement) {audioElement.pause();audioElement = null;}
+        audioElement = new Audio('assets/music/5.mp3');
+        audioElement.play();
+        image.src = "assets/image/sing.png";
+        typeText("演唱過火中...\n(我的歌聲是用日文訓練的喔)", responseText, 0);
     } else {
         if (audioElement) {audioElement.pause();audioElement = null;}
         var responses = ["我不了解你想表達什麼，你需要翻譯蒟蒻嗎??","我不了解你想表達什麼，你需要翻譯蒟蒻嗎??或是向我的開發者提供建議","我不了解你說什麼，剛剛的互動詞已超越我的認知"];
