@@ -46,7 +46,7 @@ function playGame(userChoice) {
     }
 }
 
-document.getElementById("text").addEventListener("keydown", function(event) {
+document.getElementById("btn").addEventListener("keydown", function(event) {
     if (event.key === 'Enter') { // 檢查是否按下 Enter 鍵
         event.preventDefault(); // 防止表單提交或其他預設行為
         document.getElementById("btn").click(); // 觸發按鈕的點擊事件
