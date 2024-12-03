@@ -144,9 +144,24 @@ function sendMessage() {
         var responses = ["你喜歡嗎","嘻嘻嘻嘻嘻嘻","請用其他繁體中文字或詞與我互動"];
         var randomResponse = responses[Math.floor(Math.random() * responses.length)];
         typeText(randomResponse, responseText, 0);
+    } else if (["喜歡", "不喜歡"].includes(userInput)) {
+        if (audioElement) {audioElement.pause();audioElement = null;}
+        var responses = ["什麼喜歡","什麼不喜歡"];
+        var randomResponse = responses[Math.floor(Math.random() * responses.length)];
+        typeText(randomResponse, responseText, 0);
     } else if (["閃電", "閃電是誰", "介紹閃電", "介紹一下閃電"].includes(userInput)) {
         if (audioElement) {audioElement.pause();audioElement = null;}
         var responses = ["閃電是一個致力於研究YOLOv8的碩士生","閃電最強的技能是製作Python程式的UI介面","閃電喜歡打棒球"];
+        var randomResponse = responses[Math.floor(Math.random() * responses.length)];
+        typeText(randomResponse, responseText, 0);
+    } else if (["光哥", "光哥是誰", "介紹光哥", "介紹一下光哥"].includes(userInput)) {
+        if (audioElement) {audioElement.pause();audioElement = null;}
+        var responses = ["光哥是一個致力於研究洗衣服的碩士生","光哥最強的技能是洗衣服洗到睡著","光哥是萬年財務"];
+        var randomResponse = responses[Math.floor(Math.random() * responses.length)];
+        typeText(randomResponse, responseText, 0);
+    } else if (["洗衣服"].includes(userInput)) {
+        if (audioElement) {audioElement.pause();audioElement = null;}
+        var responses = ["你要找光哥嗎","你是要找光哥嗎","光哥正在洗衣服，你要一起嗎"];
         var randomResponse = responses[Math.floor(Math.random() * responses.length)];
         typeText(randomResponse, responseText, 0);
     } else if (["你好笨", "笨ㄟ", "笨","你好呆", "呆ㄟ", "呆","你好遜","好遜","遜","你好爛","好爛","爛"].includes(userInput)) {
@@ -156,12 +171,17 @@ function sendMessage() {
         typeText(randomResponse, responseText, 0);
     } else if (["吃啥","吃什麼","能吃什麼","我餓了","餓了","我肚子餓了","午餐能吃什麼","午餐可以吃什麼","午餐推薦吃什麼","午餐推薦","肚子好餓","肚子餓","我好餓","我餓了","好餓","餓"].includes(userInput)) {
         if (audioElement) {audioElement.pause();audioElement = null;}
-        var responses = ["老師ㄟ面","賣噹噹","小籠包","炒飯","米糕城","素食鍋燒","長腳麵","擔仔麵","老蔡魚粥","黑肉水餃","混沌2點","千義","大智","千葉素食","田記豆漿"];
+        var responses = ["港園牛肉麵","老師ㄟ面","賣噹噹","小籠包","炒飯","米糕城","素食鍋燒","長腳麵","擔仔麵","老蔡魚粥","黑肉水餃","混沌2點","千義","大智","千葉素食","田記豆漿"];
         var randomResponse = responses[Math.floor(Math.random() * responses.length)];
         typeText('肚子餓了嗎?那可是很緊急呢。希希幫你從幼娘狐的餐廳清單選一間吧 ! 現在去吃' + randomResponse + "，趕快趕快", responseText, 0);
-    } else if (["你會唱哪些","唱歌","唱歌一下","你會唱歌嗎","你會唱什麼", "你會唱什麼歌", "那你會唱什麼歌", "那你會唱哪些歌曲","唱歌給我聽","唱首歌","唱首歌來","唱首歌來聽聽","唱歌給我聽","我要聽妳唱歌","希希唱歌","希希唱歌給我聽","希希唱首歌"].includes(userInput)) {
+    } else if (["你會唱哪些","唱歌","唱歌一下","你會唱歌嗎","你會唱什麼", "你會唱什麼歌", "那你會唱什麼歌", "那你會唱哪些歌曲","唱歌給我聽","唱首歌","唱首歌來","唱首歌來聽聽","唱歌給我聽","我要聽妳唱歌","希希唱歌","希希唱歌給我聽","希希唱首歌","你會唱什麼歌曲"].includes(userInput)) {
         if (audioElement) {audioElement.pause();audioElement = null;}
         var responses = ["我會唱以下歌曲 : 群青、粉雪、小幸運、煎熬、過火，選一首讓我唱給你聽吧"];
+        var randomResponse = responses[Math.floor(Math.random() * responses.length)];
+        typeText(randomResponse, responseText, 0);
+    } else if (["要聽","我要聽"].includes(userInput)) {
+        if (audioElement) {audioElement.pause();audioElement = null;}
+        var responses = ["來吧，群青、粉雪、小幸運、煎熬、過火，選一首讓我唱給你聽吧"];
         var randomResponse = responses[Math.floor(Math.random() * responses.length)];
         typeText(randomResponse, responseText, 0);
     } else if (["群青", "唱群青", "群青吧", "群青好了"].includes(userInput)) {
