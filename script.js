@@ -1,4 +1,3 @@
-
 var audioElement = null; // 宣告一個全域變數向量來儲存聲音元素
 var originalImageSrc = "assets/image/cici.png";
 
@@ -47,6 +46,12 @@ function playGame(userChoice) {
     }
 }
 
+document.getElementById("text").addEventListener("keydown", function(event) {
+    if (event.key === 'Enter') { // 檢查是否按下 Enter 鍵
+        event.preventDefault(); // 防止表單提交或其他預設行為
+        document.getElementById("btn").click(); // 觸發按鈕的點擊事件
+    }
+});
 function sendMessage() { 
     var messageInput = document.getElementById("message");
     var responseText = document.getElementById("response");
