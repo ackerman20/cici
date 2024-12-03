@@ -1,3 +1,4 @@
+
 var audioElement = null; // 宣告一個全域變數向量來儲存聲音元素
 var originalImageSrc = "assets/image/cici.png";
 
@@ -192,8 +193,4 @@ function sendMessage() {
     }
     messageInput.value = "";
 }
-document.getElementById("text").addEventListener("keyup", function(event) {
-    if (event.key === 'Enter') { // 檢查是否按下 Enter 鍵
-        document.getElementById("btn").click(); // 觸發按鈕的點擊事件
-    }
-});
+
