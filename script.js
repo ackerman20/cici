@@ -144,6 +144,11 @@ function sendMessage() {
         var responses = ["你喜歡嗎","嘻嘻嘻嘻嘻嘻","請用其他繁體中文字或詞與我互動"];
         var randomResponse = responses[Math.floor(Math.random() * responses.length)];
         typeText(randomResponse, responseText, 0);
+    } else if (["閃電", "閃電是誰", "介紹閃電", "介紹一下閃電"].includes(userInput)) {
+        if (audioElement) {audioElement.pause();audioElement = null;}
+        var responses = ["閃電是一個致力於研究YOLOv8的碩士生","閃電最強的技能是製作Python程式的UI介面","閃電喜歡打棒球"];
+        var randomResponse = responses[Math.floor(Math.random() * responses.length)];
+        typeText(randomResponse, responseText, 0);
     } else if (["你好笨", "笨ㄟ", "笨","你好呆", "呆ㄟ", "呆","你好遜","好遜","遜","你好爛","好爛","爛"].includes(userInput)) {
         if (audioElement) {audioElement.pause();audioElement = null;}
         var responses = ["請重新整理網頁仔細閱讀我的開場字","請用其他繁體中文詞與我互動","請用其他繁體中文字與我互動","很抱歉，剛剛的互動詞已超越我的認知，請向我的開發者建議"];
