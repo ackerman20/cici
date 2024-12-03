@@ -199,7 +199,7 @@ function sendMessage() {
         audioElement = new Audio('assets/music/6.mp3');
         audioElement.play();
         image.src = "assets/image/sing.png";
-        typeText("演唱過火中...\n(我的歌聲是用日文訓練的喔)", responseText, 0);
+        typeText("演唱世界都看見中...\n(我的歌聲是用日文訓練的喔)", responseText, 0);
     } else {
         if (audioElement) {audioElement.pause();audioElement = null;}
         var responses = ["我不了解你想表達什麼，你需要翻譯蒟蒻嗎??","我不了解你想表達什麼，你需要翻譯蒟蒻嗎??或是向我的開發者提供建議","我不了解你說什麼，剛剛的互動詞已超越我的認知"];
