@@ -121,7 +121,7 @@ function sendMessage() {
         typeText(randomResponse, responseText, 0);
     } else if (["你擁有哪些技能","你會哪些技能", "你能提供什麼服務", "你會哪些","你會什麼"].includes(userInput)) {
         if (audioElement) {audioElement.pause();audioElement = null;}
-        var responses = ["你好，我是AI Amaze，可以叫我希希，我會唱歌、聊天、餐廳推薦喔"];
+        var responses = ["你好，我是AI Amaze，可以叫我希希，我會唱歌、聊天、餐廳推薦，尤其是猜拳"];
         var randomResponse = responses[Math.floor(Math.random() * responses.length)];
         typeText(randomResponse, responseText, 0);
     } else if (["翻譯蒟蒻","什麼是翻譯蒟蒻","翻譯蒟蒻是什麼"].includes(userInput)) {
