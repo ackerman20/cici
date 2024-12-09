@@ -1,4 +1,4 @@
-var audioElement = null; // 宣告一個全域變數向量來儲存聲音元素
+var audioElement = null;
 var originalImageSrc = "assets/image/cici.png";
 
 function typeText(text, element, index) {
@@ -47,8 +47,8 @@ function playGame(userChoice) {
 }
 
 document.getElementById("message").addEventListener("keyup", function(event) {
-    if (event.key === "Enter") { // 檢查是否按下 Enter 鍵
-        sendMessage(); // 調用傳送訊息的函數
+    if (event.key === "Enter") { 
+        sendMessage(); 
     }
 });
 function sendMessage() { 
@@ -59,7 +59,7 @@ function sendMessage() {
     var outputt = responseText.textContent;
     var image = document.querySelector("#left-column img");
     
-    image.src = originalImageSrc; // 恢復圖片
+    image.src = originalImageSrc; 
 
     responseText.textContent = "";
     lyricsText.textContent = "";
