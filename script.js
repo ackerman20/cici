@@ -176,12 +176,12 @@ function sendMessage() {
         typeText('肚子餓了嗎?那可是很緊急呢。希希幫你從幼娘狐的餐廳清單選一間吧 ! 現在去吃' + randomResponse + "，趕快趕快", responseText, 0);
     } else if (["你會唱哪些","唱歌","唱歌一下","你會唱歌嗎","你會唱什麼", "你會唱什麼歌", "那你會唱什麼歌", "那你會唱哪些歌曲","唱歌給我聽","唱首歌","唱首歌來","唱首歌來聽聽","唱歌給我聽","我要聽妳唱歌","希希唱歌","希希唱歌給我聽","希希唱首歌","你會唱什麼歌曲"].includes(userInput)) {
         if (audioElement) {audioElement.pause();audioElement = null;}
-        var responses = ["我會唱以下歌曲 : 群青、粉雪、小幸運、煎熬、過火，選一首讓我唱給你聽吧"];
+        var responses = ["我會唱以下歌曲 : 群青、粉雪、小幸運、煎熬、過火、世界都看見，選一首讓我唱給你聽吧"];
         var randomResponse = responses[Math.floor(Math.random() * responses.length)];
         typeText(randomResponse, responseText, 0);
     } else if (["要聽","我要聽"].includes(userInput)) {
         if (audioElement) {audioElement.pause();audioElement = null;}
-        var responses = ["來吧，群青、粉雪、小幸運、煎熬、過火，選一首讓我唱給你聽吧"];
+        var responses = ["來吧，群青、粉雪、小幸運、煎熬、過火、世界都看見，選一首讓我唱給你聽吧"];
         var randomResponse = responses[Math.floor(Math.random() * responses.length)];
         typeText(randomResponse, responseText, 0);
     } else if (["群青", "唱群青", "群青吧", "群青好了"].includes(userInput)) {
