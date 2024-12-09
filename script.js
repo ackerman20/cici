@@ -19,7 +19,7 @@ image.addEventListener("click", function () {
     var image = document.querySelector("#left-column img");
     responseText.textContent = "";
     typeText("不要點我，請在對話框輸入文字與我交流", responseText, 0);
-    image.src = originalImageSrc; // 恢復圖片
+    image.src = originalImageSrc; 
     if (audioElement) {audioElement.pause();audioElement = null;}
 });
 
