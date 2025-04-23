@@ -1,27 +1,56 @@
-<html>
+<!DOCTYPE html>
+<html lang="zh">
 <head>
-    <title>希希唱歌</title>
-	<meta name="title" content="希希唱歌">
+  <title>悠鹿醬</title>
+	<meta name="title" content="悠鹿醬唱歌">
 	<meta name="description" content="展現唱歌">
-    <meta property="og:url" content="https://ackerman20.github.io/cici/index.html" />
-	<meta property="og:image" content="https://ackerman20.github.io/cici/assets/image/cici.png" />
-    <link rel="stylesheet" type="text/css" href="styles.css">
+  <meta property="og:url" content="https://ackerman20.github.io/yolochan/index.html" />
+	<meta property="og:image" content="https://ackerman20.github.io/yolochan/assets/image/yolochan.png" />
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <meta charset="UTF-8">
+  <title>展覽 AI 導覽</title>
 </head>
 <body>
-    <div id="container" class="flex-container">
-        <div id="left-column">
-            <img  src="assets/image/cici.png" alt="希希">
+  <div id="container" class="flex-container">
+    <div id="left-column">
+        <img  src="assets/images/yolochan.png" alt="悠鹿醬">
+    </div>
+    <div id="right-column">
+        <div id="chat-box">
+            <input type="text" id="message" placeholder="輸入第某組介紹專題內容">
+            <button id="btn" onclick="askAI()">傳送</button>
         </div>
-        <div id="right-column">
-            <div id="chat-box">
-                <input type="text" id="message" placeholder="輸入文字與我互動吧">
-                <button id="btn" onclick="sendMessage()">傳送</button>
-            </div>
-            <p id="response">我會唱歌你要聽嗎?還是要和我陪你簡單的聊天呢?(結尾不用打標點符號)</p>
-            <p id="lyrics"></p>
-        </div>
-        </div>
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc7BQIgizASu09ucPR4fB-7pKnjXYg97fcN1mtUUPXtMq45bw/viewform?embedded=true" width=90% height=50% frameborder="0" marginheight="0" marginwidth="0">載入中…</iframe>
-    <script src="script.js"></script>
+        <p id="response">我是這次專題展的展場AI，我叫悠鹿醬，悠鹿醬可以提供各組專題的資訊，請指定第幾組來？</p>
+    </div>
+    </div>
     <audio id="myAudio"></audio>
+
+  <script>
+    async function askAI() {
+      const message = document.getElementById("message").value;
+      document.getElementById("response").textContent = "⏳ 讓我思考一下...\n";
+      const res = await fetch("https://a2f2-118-163-223-51.ngrok-free.app/ask", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message })
+      });
+      const data = await res.json();
+      document.getElementById("response").textContent = data.reply;
+    };
+    var image = document.querySelector("#left-column img");
+    image.addEventListener("click", function () {
+        var responseText = document.getElementById("response");
+        var image = document.querySelector("#left-column img");
+        responseText.textContent = "";
+        typeText("不要點我，請在對話框輸入文字與我交流", responseText, 0);
+        image.src = originalImageSrc; 
+        if (audioElement) {audioElement.pause();audioElement = null;}
+    });
+    document.getElementById("message").addEventListener("keyup", function(event) {
+      if (event.key === "Enter") { 
+        askAI(); 
+      }
+    });
+  </script>
+</body>
 </html>
